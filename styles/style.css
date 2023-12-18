@@ -1,0 +1,340 @@
+/* --------------------------------------------------------
+    RESET https://andy-bell.co.uk/a-more-modern-css-reset/
+----------------------------------------------------------- */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Prevent font size inflation */
+html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body, h1, h2, h3, h4, p,
+figure, blockquote, dl, dd {
+    margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+    list-style: none;
+}
+
+/* Set core body defaults */
+body {
+    min-height: 100vh;
+    line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4,
+button, input, label {
+    line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1, h2,
+h3, h4 {
+    text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+    color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button,
+textarea, select {
+    font: inherit;
+}
+
+
+/* custom */
+
+li { list-style: none; }
+
+a { text-decoration: none; }
+
+button { 
+    cursor: pointer; 
+    background: none;
+    border: none;
+}
+
+/* ============================================
+    BASE
+=============================================== */
+
+@font-face {
+    font-family: Alata;
+    src: url(../fonts/Alata-Regular.ttf);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: JosefinSans;
+    src: url(../fonts/JosefinSans-Light.ttf);
+    font-weight: 300;
+}
+
+:root {
+    --clr-white: hsl(0, 0%, 100%);
+    --clr-black: hsl(0, 0%, 0%);
+
+    --font-title: JosefinSans;
+    --font-paragraph: Alata;  
+   
+    --wrapper-width: 86%;
+    --wrapper-max-width: 69.5rem;
+}
+
+body {
+    font-family: var(--font-paragraph);
+    font-size: 0.9375rem;
+}
+
+h1, h2, h3 { 
+    font-family: var(--font-title);
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+h1 { font-size: 2.5rem; }
+
+h2 { font-size: 2rem; }
+
+h3 { font-size: 1.25rem; }
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
+main, section {
+    padding: 3rem 0;
+}
+
+.wrapper {
+    display: flow-root;
+    width: var(--wrapper-width);
+    max-width: var(--wrapper-max-width);
+    height: 100%;
+    margin: 0 auto;
+}
+
+.flex-center {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.grid {
+    display: grid;
+    align-content: start;
+    gap: 1.5rem;
+}
+
+
+/* ============================================
+    MENU TOGGLE BUTTON
+=============================================== */
+
+.menu-button {
+    z-index: 10;
+    width: 2.5rem;
+    aspect-ratio: 1;
+    margin-left: auto;
+}
+  
+.menu-icon { 
+    gap: 20%;
+    width: 1.5rem;
+    aspect-ratio: 1;
+
+    transform: rotate(0deg);
+    transition: .5s ease-in-out;
+}
+  
+.menu-icon > div {
+    background-color: var(--clr-white);
+    width: 100%;
+    height: 10%;
+  
+    opacity: 1;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+}
+  
+.menu-button[aria-expanded="true"] .menu-icon div:nth-child(1) {
+    transform: translateY(300%) rotate(135deg);
+}
+  
+.menu-button[aria-expanded="true"] .menu-icon div:nth-child(2) {
+    opacity: 0;
+    width: 0%;
+}
+  
+.menu-button[aria-expanded="true"] .menu-icon div:nth-child(3) {
+    transform: translateY(-300%) rotate(-135deg);
+}
+
+
+/* ============================================
+    HEADER
+=============================================== */
+
+header {
+    position: relative;
+    height: 40.625rem;
+    color: var(--clr-white);
+    background-image: url(../images/mobile/image-hero.jpg);
+    background-color: var(--very-dark-gray);
+    background-size: cover;
+}
+
+.header-nav-container {
+    position: absolute; /* position is absolute to avoid content jumping when switching to fixed */
+    width: var(--wrapper-width);
+    max-width: var(--wrapper-max-width);
+    top: 2rem;
+}
+
+.freeze-nav { position: fixed; } /* don't scroll nav container on menu toggle */
+
+.header-logo {
+    z-index: 10;
+    width: 9rem;
+    object-fit: contain;
+}
+
+.header-nav {
+    z-index: 9;
+    position: fixed;
+    inset: 0 0 0 0;
+    background-color: var(--clr-black);
+    transform: translateX(100%);
+    transition: transform 350ms ease-out;
+}
+
+.header-nav[data-visible="true"] {
+    transform: translateX(0%);
+}
+
+.header-nav a {
+    display: block;
+    width: 100%;
+    padding: .5rem calc((100% - var(--wrapper-width)) / 2) .25rem;
+    font-family: var(--font-title);
+    font-size: 1.5rem;
+    color: var(--clr-white-secondary);
+    text-transform: uppercase;
+}
+
+.header-title {
+    align-self: center;
+    justify-self: center;
+    padding: 1.5rem 1.5rem 1rem;
+    line-height: 1;
+    border: 2px solid var(--clr-white);
+}
+
+@media (min-width: 48em) {
+
+    header {
+        background-image: url(../images/desktop/image-hero.jpg);
+        background-color: hsla(0, 0%, 0%, 40%);
+        background-size: cover;
+        background-position: center;
+        background-blend-mode: multiply;
+    }
+
+    header .wrapper {
+        justify-content: start;
+    }
+
+    .header-nav-container {
+        top: 3.75rem;
+    }
+
+    .header-logo {
+        width: 12.25rem;
+    }
+
+    .menu-button {
+        display: none;
+    }
+
+    .header-nav {
+        gap: 1.75rem;
+        margin-left: auto;
+        position: static;
+        background-color: #00000000;
+        transform: none;
+        transition: none;
+    }
+
+    .header-nav a {
+        width: fit-content;
+        padding: .5rem 0;
+        font-family: var(--font-text);
+        font-size: 1rem;
+        color: var(--clr-white);
+        text-transform: capitalize;
+        text-decoration: none;
+    }
+
+    .header-nav a::after {
+        content: '';
+        display: block;
+        width: 0;
+        margin: .25rem auto 0;
+        height: 2px;
+        background: var(--clr-white);
+        transition: width .3s;
+    }
+
+    .header-nav a:hover,
+    .header-nav a:active {
+        background-color: #00000000;
+    }
+
+    .header-nav a:hover::after,
+    .header-nav a:active::after {
+        width: 80%;
+    }
+
+    .header-title {
+        margin-top: 5.5rem;
+        max-width: 41rem;
+        padding: 2.5rem 2.5rem 1.5rem;
+        font-size: 4.5rem;
+    }
+
+}
