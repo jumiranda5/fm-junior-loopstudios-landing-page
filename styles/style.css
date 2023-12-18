@@ -99,6 +99,7 @@ button {
 :root {
     --clr-white: hsl(0, 0%, 100%);
     --clr-black: hsl(0, 0%, 0%);
+    --clr-paragraph: hsl(0, 0%, 41%);
 
     --font-title: JosefinSans;
     --font-paragraph: Alata;  
@@ -159,6 +160,14 @@ main, section {
     display: grid;
     align-content: start;
     gap: 1.5rem;
+}
+
+@media (min-width: 48em) {
+
+    main, section {
+        padding: 5rem 0;
+    }
+
 }
 
 
@@ -338,3 +347,86 @@ header {
     }
 
 }
+
+
+/* ============================================
+    SECTIONS
+=============================================== */
+
+.section-title {
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2rem;
+}
+
+
+/* ============================================
+    SECTION ABOUT
+=============================================== */
+
+.section-about .section-title {
+    margin: 1rem 0;
+}
+
+.section-about-paragraph {
+    padding: 0 1rem;
+    line-height: 1.6;
+    color: var(--clr-paragraph);
+    text-align: center;
+}
+
+@media (min-width: 48em) {
+
+    .section-title,
+    .section-paragraph {
+        text-align: start;
+    }
+
+    .section-title {
+        font-size: 3rem;
+    }
+
+    .section-about .section-title {
+        margin: 0 0 1rem;
+    }
+
+    .section-about-paragraph {
+        padding: 0;
+    }
+    
+    .section-about .grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    .section-about-image {
+        grid-column: 1 / 5;
+        margin: 0;
+    }
+
+    .section-about-content {
+        grid-column: 4 / -1;
+        align-self: self-end;
+
+        padding: 6rem 0 0 6rem;
+        background-color: white;
+    }
+
+    .section-about-image,
+    .section-about-content {
+        grid-row: 1 / 2;
+    }
+
+}
+
+
+/* ============================================
+    SECTION CREATIONS
+=============================================== */
+
+
+
+/* ============================================
+    FOOTER
+=============================================== */
