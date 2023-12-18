@@ -425,7 +425,106 @@ header {
     SECTION CREATIONS
 =============================================== */
 
+.section-creations .section-title {
+    margin-bottom: 1.5rem;
+}
 
+.creation {
+    min-height: 7.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.creation-title,
+.creation-image {
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+}
+
+.creation-image img {
+    object-fit: cover;
+    min-width: 100%;
+}
+
+.creation-title {
+    z-index: 5;
+    height: 100%;
+    font-size: 1.5rem;
+}
+
+.creation-title-link {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    color: hsla(0, 0%, 100%, 0.85);
+    background: linear-gradient(to right, hsla(0, 0%, 0%, 60%), hsla(0, 0%, 0%, 0%));
+}
+
+.creation-title-link span {
+    display: block;
+    width: 40%;
+    align-self: flex-end;
+    margin: 1.25rem;
+    text-wrap: balance;
+}
+
+.creation-title-link:hover,
+.creation-title-link:active {
+    color: var(--clr-black);
+    background: linear-gradient(to right, hsla(0, 0%, 100%, 60%), hsla(0, 0%, 100%, 60%));
+}
+
+.creations-button-see-all {
+    width: fit-content;
+    justify-self: center;
+    padding: .5rem 2.25rem;
+    margin-top: .5rem;
+    color: var(--clr-black);
+    border: 1px solid var(--clr-black);
+    text-transform: uppercase;
+    letter-spacing: .25rem;
+    transition: all .3s;
+}
+
+.creations-button-see-all:hover,
+.creations-button-see-all:active {
+    color: var(--clr-white);
+    background-color: var(--clr-black);
+}
+
+@media (min-width: 48em) {
+    
+    .section-creations .grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+    }
+
+    .section-creations .section-title {
+        grid-column: 1 / 4;
+        margin-bottom: 3rem;
+    }
+
+    .creations-button-see-all {
+        grid-column: 4 / 5;
+        grid-row: 1 / 2;
+        align-self: start;
+        justify-self: end;
+    }
+
+    .creation-title {
+        font-size: 2rem;
+    }
+
+    .creation-title-link {
+        background: linear-gradient(to top, hsla(0, 0%, 0%, 60%), hsla(0, 0%, 0%, 0%));
+    }
+
+    .creation-title-link span {
+        width: 80%;
+        margin: 2rem 2.5rem;
+    }
+
+}
 
 /* ============================================
     FOOTER
