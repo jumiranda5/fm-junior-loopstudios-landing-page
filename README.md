@@ -25,8 +25,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [todo](https://your-solution-url.com)
-- Live Site URL: [todo](https://your-live-site-url.com)
+- Solution URL: [Frontend Mentor](https://www.frontendmentor.io/solutions/loopstudios-landing-page-4keZ8mzFxx)
+- Live Site URL: [Github Pages](https://jumiranda5.github.io/fm-junior-loopstudios-landing-page/)
 
 ## Author
 
