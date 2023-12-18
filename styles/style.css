@@ -385,6 +385,12 @@ header .nav-link:active {
     font-size: 2rem;
 }
 
+@media (min-width: 48rem) {
+    .section-title {
+        font-size: 3rem;
+    }
+}
+
 
 /* ============================================
     SECTION ABOUT
@@ -404,16 +410,48 @@ header .nav-link:active {
 @media (min-width: 48em) {
 
     .section-title,
-    .section-paragraph {
+    .section-about-paragraph {
         text-align: start;
-    }
-
-    .section-title {
-        font-size: 3rem;
     }
 
     .section-about .section-title {
         margin: 0 0 1rem;
+        font-size: 2.5rem;
+    }
+
+    .section-about-paragraph {
+        padding: 0;
+    }
+    
+    .section-about .grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    .section-about-image {
+        grid-column: 1 / 5;
+        margin: 0 0 8rem 0;
+    }
+
+    .section-about-content {
+        grid-column: 3 / -1;
+        align-self: self-end;
+
+        padding: 4rem 0 0 4rem;
+        background-color: white;
+    }
+
+    .section-about-image,
+    .section-about-content {
+        grid-row: 1 / 2;
+    }
+
+}
+
+@media (min-width: 64em) {
+
+    .section-about .section-title {
+        margin: 0 0 1rem;
+        font-size: 3rem;
     }
 
     .section-about-paragraph {
@@ -520,24 +558,21 @@ header .nav-link:active {
 @media (min-width: 48em) {
     
     .section-creations .grid {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 2rem;
     }
 
     .section-creations .section-title {
-        grid-column: 1 / 4;
-        margin-bottom: 3rem;
+        grid-column: 1 / 3;
+        margin: 1.5rem 0 3rem;
+        justify-self: start;
     }
 
     .creations-button-see-all {
-        grid-column: 4 / 5;
+        grid-column: 3 / 4;
         grid-row: 1 / 2;
         align-self: start;
         justify-self: end;
-    }
-
-    .creation-title {
-        font-size: 2rem;
     }
 
     .creation-title-link {
@@ -546,6 +581,33 @@ header .nav-link:active {
 
     .creation-title-link span {
         width: 80%;
+    }
+
+    .creations-button-see-all {
+        margin-top: 1.5rem;
+    }
+
+}
+
+@media (min-width: 64em) {
+    
+    .section-creations .grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .section-creations .section-title {
+        grid-column: 1 / 4;
+    }
+
+    .creations-button-see-all {
+        grid-column: 4 / 5;
+    }
+
+    .creation-title {
+        font-size: 2rem;
+    }
+
+    .creation-title-link span {
         margin: 2rem 2.5rem;
     }
 
@@ -616,7 +678,7 @@ footer .wrapper {
     color: var(--clr-white);
 }
 
-@media (min-width: 48em) {
+@media (min-width: 60em) {
 
     footer {
         padding: 2.5rem 0;
